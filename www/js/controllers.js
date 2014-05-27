@@ -70,10 +70,82 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AjoutCtrl', function($scope) {
+    $('#quotidien').hide();
+    $('#hebdomadaire').hide();
+    $('#mensuelle').hide();
+    $('#annuelle').hide();
+
+
+    $( '#periodicite' ).mouseout( function() {
+
+        $selection = $("#periodicite option:selected").text();
+
+        if ($selection == "Quotidien")
+        {
+            $('#quotidien').show("slow");
+            $('#hebdomadaire').hide("slow");
+            $('#mensuelle').hide("slow");
+            $('#annuelle').hide("slow");
+
+        }
+        else if ($selection == "Hebdomadaire")
+        {
+            $('#quotidien').hide("slow");
+            $('#hebdomadaire').show("slow");
+            $('#mensuelle').hide("slow");
+            $('#annuelle').hide("slow");
+        }
+        else if ($selection == "Mensuelle")
+        {
+            $('#quotidien').hide("slow");
+            $('#hebdomadaire').hide("slow");
+            $('#mensuelle').show("slow");
+            $('#annuelle').hide("slow");
+        }
+        else if ($selection == "Annuelle")
+        {
+            $('#quotidien').hide("slow");
+            $('#hebdomadaire').hide("slow");
+            $('#mensuelle').hide("slow");
+            $('#annuelle').show("slow");
+        }
+        else
+        {
+            $('#quotidien').hide("slow");
+            $('#hebdomadaire').hide("slow");
+            $('#mensuelle').hide("slow");
+            $('#annuelle').hide("slow");
+        }
+
+    });
 })
 
 .controller('ListeCtrl', function($scope) {
 })
 
 .controller('ParamCtrl', function($scope) {
+    $('#param').hide();
+
+    $( '#submitButton' ).click( function() {
+        $('#identification').hide("slow");
+        $('#param').show("slow");
+    });
+
+    $( '.supCritere' ).click( function() {
+        $(this).parent().hide("slow");
+    });
+
+    $( '#ajoutCrit' ).click( function() {
+
+        selectAjout = $("#newCrit option:selected").text();
+        if(selectAjout != "...")
+        {
+            $(this).parent().parent().prepend(
+            '<div class="item item-button-right">'+selectAjout+'<button class="button button-assertive supCritere"><i class="icon ion-close-round"></i></button></div>'
+            ).show("slow");
+        }
+    });
+})
+
+.controller('ConCtrl', function($scope) {
 });
