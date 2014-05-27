@@ -1,8 +1,22 @@
+////////////////////
+////
+/// La récupération des données se fait
+/// en décalé (function settimeout, pour laisser 
+/// le temps à la requette sql de s'effectuer. à améliorer)
+///
+///
+//////////////////
+
+
+
+
 angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {
-    $(function() {
 
+getAlerts();
+setTimeout(function() {
+$(function() {
                 var transEndEventNames = {
                         'WebkitTransition' : 'webkitTransitionEnd',
                         'MozTransition' : 'transitionend',
@@ -21,7 +35,7 @@ angular.module('starter.controllers', [])
                             }
 
                         },
-                        caldata : codropsEvents,
+                        caldata :codropsEvents,
                         displayWeekAbbr : true
                     } ),
                     $month = $( '#custom-month' ).html( cal.getMonthName() ),
@@ -66,7 +80,9 @@ angular.module('starter.controllers', [])
 
                 }
 
-            });
+            });}, 500);
+
+    
 })
 
 .controller('AjoutCtrl', function($scope) {
