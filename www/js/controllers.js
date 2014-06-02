@@ -145,12 +145,12 @@ angular.module('starter.controllers', [])
 .controller('ListeCtrl', function($scope) {
 
 
-    var hauteur = $(window).height();
+    var hauteur = $(window).height()-120;
     $("#calendar").css("height", hauteur);
-    // $(window).resize(function(){
-    //     hauteur = $(".main").height() - 120; // récupère la hauteur du main sans les menus
-    //     $(".fc-calendar-container").css("height", hauteur); // défini la taille du calendrier
-    // });
+    $(window).resize(function(){
+        hauteur = $(window).height()-120; // récupère la hauteur du main sans les menus
+        $("#calendar").css("height", hauteur); // défini la taille du calendrier
+    });
 
     getAlerts();
     setTimeout(function() {
