@@ -9,7 +9,7 @@ var codropsEvents = {
 
 
 
-		html5sql.openDatabase("BDDAlertes", "BDDAlertes", 3 * 1024 * 1024);
+		html5sql.openDatabase("NemtysAppDB", "NemtysAppDB", 3 * 1024 * 1024);
 
 		html5sql.process(
 			[{
@@ -19,8 +19,8 @@ var codropsEvents = {
 			function(transaction, results, rowsArray){
 
 				for(var i = 0; i < rowsArray.length; i++){
-					var date=""+rowsArray[i].date_alerte;
-					var titre=""+rowsArray[i].titre;
+					var date=""+rowsArray[i].date_debut_alerte;
+					var titre=""+rowsArray[i].titre_alerte;
 					codropsEvents[date]='<span>'+titre+'</span>';
 				}
 				console.log(codropsEvents);
@@ -31,7 +31,7 @@ var codropsEvents = {
 				errors.append("<li>"+error.message+" Occured while processing: "+statement+"</li>");
 			}
 			);
-		
+
 		return codropsEvents;
 
 	}

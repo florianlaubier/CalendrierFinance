@@ -18,10 +18,7 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-
-  <p>sdfsdf</p>
-
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -65,7 +62,7 @@ $( document ).ready(function() {
 
 
 if (localStorage.getItem("dbCreated") != true) {
-    html5sql.openDatabase("BDDAlertes", "BDDAlertes", 3 * 1024 * 1024);
+    html5sql.openDatabase("NemtysAppDB", "NemtysAppDB", 3 * 1024 * 1024);
     var request = new XMLHttpRequest();
     request.open("GET", "create.sql", true);
 

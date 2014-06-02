@@ -14,6 +14,13 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {
 
+    // ajout du Css calendar et suppression de celui de la liste
+    $("LINK[href*='css/customListe.css']").remove();
+    $("head").append($("<link rel='stylesheet' href='css/customCalendar.css' type='text/css'/>"));
+
+    getAlerts();
+    setTimeout(function() {
+
     var hauteur = $(".main").height() - 120;
     $(".fc-calendar-container").css("height", hauteur);
     $(window).resize(function(){
@@ -21,9 +28,6 @@ angular.module('starter.controllers', [])
         $(".fc-calendar-container").css("height", hauteur); // défini la taille du calendrier
     });
 
-
-    getAlerts();
-    setTimeout(function() {
     $(function() {
                 var transEndEventNames = {
                         'WebkitTransition' : 'webkitTransitionEnd',
@@ -143,7 +147,12 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ListeCtrl', function($scope) {
+    // ajout du Css calendar et suppression de celui de la liste
+    $("LINK[href*='css/customCalendar.css']").remove();
+    $("head").append($("<link rel='stylesheet' href='css/customListe.css' type='text/css'/>"));
 
+    getAlerts();
+    setTimeout(function() {
 
     var hauteur = $(window).height()-120;
     $("#calendar").css("height", hauteur);
@@ -152,8 +161,6 @@ angular.module('starter.controllers', [])
         $("#calendar").css("height", hauteur); // défini la taille du calendrier
     });
 
-    getAlerts();
-    setTimeout(function() {
     $(function() {
                 var transEndEventNames = {
                         'WebkitTransition' : 'webkitTransitionEnd',
