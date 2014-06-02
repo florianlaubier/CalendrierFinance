@@ -1,12 +1,25 @@
+<link rel="stylesheet" type="text/css" href="css/customListe.css" />
+
 <ion-view title="Liste">
-  <ion-content class="has-header padding">
 
-  </ion-content>
+    <ion-content>
+        <section class="main">
+            <div class="custom-calendar-wrap">
+                <div id="custom-inner" class="custom-inner">
+
+                    <div class="custom-header clearfix" style="postion:absolute;">
+                        <nav>
+                            <span id="custom-prev" class="custom-prev"></span>
+                            <span id="custom-next" class="custom-next"></span>
+                        </nav>
+                        <h2 id="custom-month" class="custom-month"></h2>
+                        <h3 id="custom-year" class="custom-year"></h3>
+                    </div>
+
+                    <div id="calendar" style="overflow:scroll;" class="fc-calendar-container"></div>
+
+                </div>
+            </div>
+        </section>
+    </ion-content>
 </ion-view>
-
-<script>
-
-</script>
-
-
-<div id="txtHint"><b>NOTIFICATION.</b></div>

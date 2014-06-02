@@ -10,7 +10,6 @@
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/calendar.css" />
-<link rel="stylesheet" type="text/css" href="css/customCalendar.css" />
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -46,11 +45,11 @@
       The nav bar that will be updated as we navigate between views.
     -->
 
-    <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+<!--     <ion-nav-bar class="bar-stable nav-title-slide-ios7">
       <ion-nav-back-button class="button-icon icon ion-chevron-left">
         Back
       </ion-nav-back-button>
-    </ion-nav-bar>
+    </ion-nav-bar> -->
 
     <!--
       The views will be rendered in the <ion-nav-view> directive below
@@ -69,6 +68,7 @@ if (localStorage.getItem("dbCreated") != true) {
     html5sql.openDatabase("BDDAlertes", "BDDAlertes", 3 * 1024 * 1024);
     var request = new XMLHttpRequest();
     request.open("GET", "create.sql", true);
+
     request.onreadystatechange = function(){
         if (request.readyState == 4) {
             if (request.status == 200 || request.status == 0) {
