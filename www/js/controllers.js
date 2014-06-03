@@ -100,6 +100,17 @@ angular.module('starter.controllers', [])
     $('#hebdomadaire').hide();
     $('#mensuelle').hide();
     $('#annuelle').hide();
+    $titre_alerte="";
+    $date_debut_alerte="";
+    $date_fin_alerte="";
+    $description_alerte="";
+    $prorite_alerte="";
+    $delai_alerte=14;
+    $id_categorie=0;
+    $id_utilisateur=0;
+    $id_saviez=0;
+    $id_periodicite=0;
+
 
 
     $( '#periodicite' ).mouseout( function() {
@@ -144,6 +155,42 @@ angular.module('starter.controllers', [])
         }
 
     });
+$("#enregistrerRappel").click(function(){
+
+    var prioriteselected = document.getElementById("priorite");
+    var categorieselected=document.getElementById("categorie");
+    $titre_alerte=$("#titre").val();
+    $date_debut_alerte=$("#dateDebut").val();
+    $date_fin_alerte=$("#dateFin").val();
+    $description_alerte=$("#description").val();
+    $prorite_alerte=prioriteselected.options[prioriteselected.selectedIndex].value;
+/*    $delai_alerte=$("#rappel").val();
+    $id_categorie=categorieselected.options[categorieselected.selectedIndex].value;*/
+        $delai_alerte=0;
+    $id_categorie=0;
+    $id_utilisateur=0;
+    $id_saviez=0;
+    $id_periodicite=0;
+
+
+
+        html5sql.openDatabase("NemtysAppDB", "NemtysAppDB", 3 * 1024 * 1024);
+        html5sql.process(
+             [
+             
+                "INSERT INTO alertes (titre_alerte,date_debut_alerte,date_fin_alerte,description_alerte,prorite_alerte,delai_alerte,id_categorie,id_utilisateur,id_saviez,id_periodicite) VALUES ('"+$titre_alerte+"','"+$date_debut_alerte+"','"+$date_fin_alerte+"','"+$description_alerte+" ','"+$prorite_alerte+"',"+$delai_alerte+","+$id_categorie+","+$id_utilisateur+","+$id_saviez+","+$id_periodicite+");"
+
+             ],
+             function(){
+                alert("ajout fait");
+             },
+             function(error, statement){
+                 alert(error);
+             }
+        );
+    });
+
+
 })
 
 .controller('ListeCtrl', function($scope) {
