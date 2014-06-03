@@ -164,7 +164,10 @@ $("#enregistrerRappel").click(function(){
     $date_debut_alerte=""+$dateRecupereeMauvaisFormat.substring(5,7)+"-"
         +$dateRecupereeMauvaisFormat.substring(8)+"-"
         +$dateRecupereeMauvaisFormat.substring(0,4);
-    $date_fin_alerte=$("#dateFin").val();
+$dateFinRecupereeMauvaisFormat=$("#dateFin").val();
+    $date_fin_alerte=""+$dateFinRecupereeMauvaisFormat.substring(5,7)+"-"
+        +$dateFinRecupereeMauvaisFormat.substring(8)+"-"
+        +$dateFinRecupereeMauvaisFormat.substring(0,4);        
     $description_alerte=$("#description").val();
     $prorite_alerte=prioriteselected.options[prioriteselected.selectedIndex].value;
 /*    $delai_alerte=$("#rappel").val();
