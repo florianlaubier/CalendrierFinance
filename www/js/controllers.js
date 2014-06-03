@@ -160,7 +160,10 @@ $("#enregistrerRappel").click(function(){
     var prioriteselected = document.getElementById("priorite");
     var categorieselected=document.getElementById("categorie");
     $titre_alerte=$("#titre").val();
-    $date_debut_alerte=$("#dateDebut").val();
+    $dateRecupereeMauvaisFormat=$("#dateDebut").val();
+    $date_debut_alerte=""+$dateRecupereeMauvaisFormat.substring(5,7)+"-"
+        +$dateRecupereeMauvaisFormat.substring(8)+"-"
+        +$dateRecupereeMauvaisFormat.substring(0,4);
     $date_fin_alerte=$("#dateFin").val();
     $description_alerte=$("#description").val();
     $prorite_alerte=prioriteselected.options[prioriteselected.selectedIndex].value;
